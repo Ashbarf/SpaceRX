@@ -3,8 +3,8 @@
 public class GroundTile : MonoBehaviour {
 
     GroundSpawner groundSpawner;
+    [SerializeField] GameObject[] obstaclePrefab = new GameObject[3];
     [SerializeField] GameObject coinPrefab;
-    [SerializeField] GameObject obstaclePrefab;
     [SerializeField] GameObject wallPrefab;
 
     private void Start () {
@@ -20,11 +20,11 @@ public class GroundTile : MonoBehaviour {
     public void SpawnObstacle ()
     {
         // Choose a random point to spawn the obstacle
-        int obstacleSpawnIndex = Random.Range(2, 4);
+        int obstacleSpawnIndex = Random.Range(2, 5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
 
         // Spawn the obstace at the position
-        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
+        Instantiate(obstaclePrefab[Random.Range(0, obstaclePrefab.Length)], spawnPoint.position, Quaternion.identity, transform);
     }
 
     public void SpawnWall()

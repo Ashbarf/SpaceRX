@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour {
 
     [SerializeField] float turnSpeed = 90f;
 
-    public AudioSource CoinSFX;
+    private AudioSource CoinSFX;
 
     private void OnTriggerEnter (Collider other)
     {
