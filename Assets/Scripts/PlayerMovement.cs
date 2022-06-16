@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour {
         rb.MovePosition(rb.position + forwardMove + horizontalMove);
     }
 
-    private void Update () {
+    private void Update () 
+    {
         horizontalInput = Input.GetAxis("Horizontal");
 
         if (transform.position.y < -5) {
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour {
     public void Die ()
     {
         alive = false;
+
+        MainMenu.instance.isFirstTime = false;
         // Restart the game
         Invoke("Restart", 2);
     }

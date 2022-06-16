@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public static MainMenu instance;
+    
+    public bool isFirstTime = true;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    
     // Start the game once the "Play" button is pressed
     public void PlayGame()
     {
