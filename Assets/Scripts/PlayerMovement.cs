@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] float horizontalMultiplier = 2;
 
     public float speedIncreasePerPoint = 0.1f;
+    public GameObject gameOverScreen;
 
     private void FixedUpdate ()
     {
@@ -33,14 +34,14 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Die ()
     {
+        MainMenu.instance.isFirstTime = false;
         alive = false;
 
-        MainMenu.instance.isFirstTime = false;
-        // Restart the game
-        Invoke("Restart", 2);
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 
-    void Restart ()
+    public void Restart ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

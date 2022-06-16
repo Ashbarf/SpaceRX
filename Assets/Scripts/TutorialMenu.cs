@@ -5,6 +5,7 @@ using UnityEngine;
 public class TutorialMenu : MonoBehaviour
 {
     public GameObject tutorialUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,6 @@ public class TutorialMenu : MonoBehaviour
 
     public void Skip ()
     {
-       Time.timeScale = 1f;
+        Time.timeScale = 1f;
     }
 }
